@@ -31,4 +31,12 @@ class Auction
     end
     potential_revenue
   end
+
+  def bidders
+    @items.map do |item|
+      item.bids.keys.map do |key|
+        key.name
+      end
+    end.flatten.uniq
+  end
 end
