@@ -39,4 +39,15 @@ class Auction
       end
     end.flatten.uniq
   end
+
+  def bidder_info
+    bidder_info = {}
+    @items.each do |item|
+      # require 'pry'; binding.pry
+      item.bids.keys.each do |key|
+        bidder_info[key] = {:budget => key.budget, :items => "test"}
+      end
+    end
+    bidder_info
+  end
 end
