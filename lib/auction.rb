@@ -43,9 +43,15 @@ class Auction
   def bidder_info
     bidder_info = {}
     @items.each do |item|
-      # require 'pry'; binding.pry
-      item.bids.keys.each do |key|
-        bidder_info[key] = {:budget => key.budget, :items => "test"}
+      item.bids.each do |attendee, _|
+        if bidder_info.key?(attendee)
+          bidder_info[attendee][:items] << item
+        else
+          bidder_info[attendee] = {
+            budget: attendee.budget,
+            items: [item]
+          }
+        end
       end
     end
     bidder_info
