@@ -97,7 +97,9 @@ describe Auction do
     @item4.add_bid(@attendee3, 50)
     @item3.add_bid(@attendee2, 15)
 
-    expect(@auction.bidder_info.keys).to eq [@attendee1, @attendee2, @attendee3]
+    expect(@auction.bidder_info.keys).to eq [@attendee2, @attendee1, @attendee3]
+
+    expect(@auction.bidder_info[@attendee2]).to eq ({:budget => 75, :items => [@item1, @item3]})
   end
 
 end
