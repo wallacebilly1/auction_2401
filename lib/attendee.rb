@@ -1,6 +1,8 @@
 class Attendee
-	def initialize(att_info)
-		@att_info = att_info
-	end
+  attr_reader :name
+
+  def initialize(att_info)
+    @name = att_info[:name]
+  end
 
 end
