@@ -20,4 +20,15 @@ class Auction
       item.bids.empty?
     end
   end
+
+  def potential_revenue
+    potential_revenue = 0
+    @items.each do |item|
+      if item.bids.any?
+        item_revenue = item.bids.values.max
+        potential_revenue += item_revenue
+      end
+    end
+    potential_revenue
+  end
 end
