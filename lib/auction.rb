@@ -9,4 +9,9 @@ class Auction
     @items << item
   end
 
+  def item_names
+    @items.map do |item|
+      item.name
+    end
+  end
 end
