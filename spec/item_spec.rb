@@ -40,4 +40,16 @@ describe Item do
 
     expect(@item1.current_high_bid).to eq 22
   end
+
+  it 'can only allow bids on items that are open' do
+    @item1.add_bid(@attendee2, 20)
+    
+    expect(@item1.bids).to eq ({@attendee2 => 20})
+
+    @item1.close_bidding
+
+    @item1.add_bid(@attendee3, 50)
+
+    expect(@item1.bids).to eq ({@attendee2 => 20})
+  end
 end
